@@ -1,0 +1,2 @@
+// GridView builder--> it is same as listview builder but it saves the time efficiency(i.e. performance) by just rendering the things which are on the screen and does'nt render which are off the screen, which makes the app run faster.
+    
