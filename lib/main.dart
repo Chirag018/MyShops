@@ -4,8 +4,8 @@ import 'package:shop/cart_screen.dart';
 import 'package:shop/product_details_screen.dart';
 import 'package:shop/product_overview_screen.dart';
 import 'package:shop/provider/cart.dart';
+import 'package:shop/provider/orders.dart';
 import 'package:shop/provider/products.dart';
-import './provider/products.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: Cart(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Orders(),
         ),
       ],
       // );
