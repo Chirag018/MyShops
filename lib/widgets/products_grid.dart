@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/provider/product.dart';
+
+import '../provider/products.dart';
+// import 'package:shop/provider/product.dart';
 
 import 'product_item.dart';
-import 'provider/products.dart';
 
 class ProductsGrid extends StatelessWidget {
   final bool showFav;
@@ -23,8 +24,9 @@ class ProductsGrid extends StatelessWidget {
           mainAxisSpacing: 10,
         ),
         itemBuilder: (ctx, i) {
-          return ChangeNotifierProvider(
-            create: (c) => products[i],
+          return ChangeNotifierProvider.value(
+            // create: (c) => products[i],
+            value: products[i]  ,
             child: ProductItem(
                 // products[i].id,
                 // products[i].title,
