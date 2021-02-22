@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           value: Cart(),
         ),
         ChangeNotifierProvider.value(
-          value: Orders(),
+          value: Orders(),  
         ),
       ],
       // );
