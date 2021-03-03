@@ -9,6 +9,8 @@
 // 'as' in the import module is used when we are going to use the name of the library in many instance then instead of writing long names we can use the shortcut by using 'as' keyword.
 // 'show' is the same 'as' keyword but a major difference is that it will call the specific function / object instead of calling the entire class .
 // Dismissible --> is a animated UI built in flutter which is used to swipe the elements or delete it from the list.
+// NetworkImage,AssetImage are the ones which is used to yield the image i.e. to get the image from the url it is used instead of Image.asset or Image.network because the NetworkImage,AssetImage are the objects and are not widgets they are just used to fetch the image and pass the data to backgroundImage i.e. CircleAvatar.
+// After creating focusNode we need to dispose it because it can leads to memory leak.
 
 
             
