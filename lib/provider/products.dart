@@ -45,9 +45,9 @@ class Products with ChangeNotifier {
     return [..._items];
   }
 
-  List<Product> get favoriteItem{
+  List<Product> get favoriteItem {
     return _items.where((ProductItem) => ProductItem.isFavorite).toList();
-  }  
+  }
 
   Product findById(String id) {
     return _items.firstWhere((prod) => prod.id == id);
@@ -59,11 +59,34 @@ class Products with ChangeNotifier {
   // }
   // void showOnly(){
   //   _showFavoritesOnly=false;
-  //   notifyListeners(); 
+  //   notifyListeners();
   // }
 
-  void addProduct() {
+  void addProduct(Product product) {
     // _items.add(value);
+    final newProduct = Product(
+      id: DateTime.now().toString(),
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      imageUrl: product.imageUrl,
+    );
+    _items.add(newProduct);
+    notifyListeners();
+  }
+
+  void updateProduct(String id, Product newProduct) {
+    final prodIndex = _items.indexWhere((prod) => prod.id == id);
+    if (prodIndex >= 0) {
+      _items[prodIndex] = newProduct;
+      notifyListeners();
+    } else {
+      print('........');
+    }
+  }
+
+  void deleteProducts(String id) {
+    _items.removeWhere((prod) => prod.id == id);
     notifyListeners();
   }
 // <<<<<<< Updated upstream
