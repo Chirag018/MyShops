@@ -9,7 +9,7 @@ import 'package:shop/provider/cart.dart';
 import 'package:shop/provider/orders.dart';
 import 'package:shop/provider/products.dart';
 import 'package:shop/screens/user_production_screen.dart';
-import 'package:shop/screens/edit_product_screen.dart';
+//import 'package:shop/screens/edit_product_screen.dart';
 
 void main() {
   runApp(MyApp());
