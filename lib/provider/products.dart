@@ -67,7 +67,7 @@ class Products with ChangeNotifier {
   // }
 
   Future<void> addProduct(Product product) {
-    const url='https://firstapp-93042-default-rtdb.firebaseio.com/products';
+    const url='https://firstapp-93042-default-rtdb.firebaseio.com/products.json';
     return http.post(url,
       body: json.encode({'title':product.title,'description':product.description,'imaageUrl':product.imageUrl,'price':product.price,'isFavorite':product.isFavorite,}),
     ).then((response) {
