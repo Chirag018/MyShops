@@ -1,6 +1,10 @@
+import 'dart:convert';
+//import 'dart:html';
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 // import 'package:shop/widgets/product_item.dart';
-
+import 'package:http/http.dart' as http;
 import 'product.dart';
 
 class Products with ChangeNotifier {
@@ -53,7 +57,7 @@ class Products with ChangeNotifier {
     return _items.firstWhere((prod) => prod.id == id);
   }
 
-  // void showFavoritiesOnly(){
+      // void showFavoritiesOnly(){}
   //   _showFavoritesOnly=true;
   //   notifyListeners();
   // }
@@ -62,9 +66,12 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  void addProduct(Product product) {
-    // _items.add(value);
-    final newProduct = Product(
+  Future<void> addProduct(Product product) {
+    const url='https://firstapp-93042-default-rtdb.firebaseio.com/products.json';
+    http.post(url,
+      body: json.encode({'title':product.title,'description':product.description,'imaageUrl':product.imageUrl,'price':product.price,'isFavorite':product.isFavorite,}),
+    ).then((response) {
+final newProduct = Product(
       id: DateTime.now().toString(),
       title: product.title,
       description: product.description,
@@ -73,6 +80,10 @@ class Products with ChangeNotifier {
     );
     _items.add(newProduct);
     notifyListeners();
+    } ,);
+    
+    // _items.add(value);
+    
   }
 
   void updateProduct(String id, Product newProduct) {
