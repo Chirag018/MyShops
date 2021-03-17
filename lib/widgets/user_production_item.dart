@@ -4,11 +4,12 @@ import 'package:shop/provider/products.dart';
 import 'package:shop/screens/edit_product_screen.dart';
 
 class UserProductionItem extends StatelessWidget {
-  final String id,title, imageUrl;
+  final String id, title, imageUrl;
 
-  UserProductionItem(this.id,this.title, this.imageUrl);
+  UserProductionItem(this.id, this.title, this.imageUrl);
   @override
   Widget build(BuildContext context) {
+    final scaffold=Scaffold.of(context);
     return ListTile(
       title: Text(title),
       leading: CircleAvatar(
@@ -21,14 +22,24 @@ class UserProductionItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.edit),
               onPressed: () {
-                Navigator.of(context).pushNamed(EditProductScreen.routeName,arguments: id);
+                Navigator.of(context)
+                    .pushNamed(EditProductScreen.routeName, arguments: id);
               },
               color: Theme.of(context).primaryColor,
             ),
             IconButton(
               icon: Icon(Icons.delete),
-              onPressed: () {
-                Provider.of<Products>(context,listen: false).deleteProducts(id);
+              onPressed: () async {
+                try {
+                  await Provider.of<Products>(context, listen: false)
+                      .deleteProducts(id);
+                } catch (error) {
+                  scaffold.showSnackBar(
+                    SnackBar(
+                      content: Text('deleting failed!'),
+                    ),
+                  );
+                }
               },
               color: Theme.of(context).errorColor,
             ),

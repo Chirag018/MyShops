@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 class Product with ChangeNotifier {
   final String id, title, description;
   final double price;
-  final String imageUrl;
+  final String imaageUrl;
   bool isFavorite;
 
   Product({
@@ -11,7 +11,7 @@ class Product with ChangeNotifier {
     @required this.title,
     @required this.description,
     @required this.price,
-    @required this.imageUrl,
+    @required this.imaageUrl,
     this.isFavorite = false,
   });
    

@@ -25,7 +25,7 @@ class ProductItem extends StatelessWidget {
             );
           },
           child: Image.network(
-            product.imageUrl,
+            product.imaageUrl,
             fit: BoxFit.cover,
           ),
         ),
